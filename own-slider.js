@@ -378,11 +378,9 @@ class OwnSlider{
 	pause(){
 		window.clearInterval(timers[this.id]);
 		timers[this.id]=false;
-		//console.log("paused");
 	}
 	
 	restart(){
-		//console.log("restart");
 		this.slide();
 	}
 	
@@ -391,25 +389,17 @@ class OwnSlider{
 			return;
 		}
 		else{
-			//if(this.slidesNumber >1 && isEven(this.slidesNumber)){
 			if(this.slidesNumber >1){
 				let elemtArriere = [];
 				let elemtAvt = [];
 				let i = 0;
 				let maxClone = (this.slidesNumber>4)? 4 : this.slidesNumber;
 				let j = this.slidesNumber - 1;
-				// Array.from($(this.el).find("div.own-slide")).forEach(function(div){
-				// 	console.log(div);
-				// });
-				
-				//création des clones de suite en nombre égale à this.slideToScroll à l'arriere et à l'avant
 				for(i=0; i<maxClone;i++){
 					elemtArriere.push($($(this.el).find("div.own-slide").get(i)).clone().addClass("clone"));
 					elemtAvt.push($($(this.el).find("div.own-slide").get(j)).clone().addClass("clone"));
 					j--;
 				}
-				//console.log(elemtArriere);
-				//console.log(elemtAvt);
 				
 				for(i=0; i<maxClone;i++){
 					elemtArriere[i].appendTo($(this.el).find("div.own-slider-track"));
@@ -545,7 +535,6 @@ class OwnSlider{
 		this.setSlideMove(slideMove);
 		this.setCurrentShowSlides(currentShowSlide);
 		this.setSlideWidth(slideWidth);
-		//remettre la slide 1 en premier
 		this.rewindSlider();
 		window.clearInterval(timers[this.id]);
 		timers[this.id]=false;
@@ -553,7 +542,6 @@ class OwnSlider{
 	}
 	
 	previousSlide(){
-		//console.log("clicked");
 		if(this.inUse){
 			return;
 		}
@@ -579,10 +567,6 @@ class OwnSlider{
 					}
 					currentSlide -=  slideToScroll;
 					nextSlide=currentSlide - slideToScroll;
-					// console.log("currentSlide: " + currentSlide);
-					// console.log("nextSlide:" + nextSlide);
-					// console.log("slideToScroll:" + slideToScroll);
-					// console.log("-this.maxClones:" + -this.maxClones);
 					this.setCurrentSlide(currentSlide);
 					
 					if(nextSlide < -this.maxClones){
@@ -665,34 +649,3 @@ $.fn.ownSliders = function(options={}) {
   };
       
 })( jQuery );
-
-
-
-
-$(document).ready(function(){
-	
-	$("#slider1").ownSliders({
-		showSlides : 4,
-		slideToScroll : 2,
-		delay : 3000,
-		showArrows : true,
-		arrowType : "content",
-		arrowRightContent : "p",
-		arrowRightContentSize : 2,
-		slideShadow : false,
-	});
-	
-	$("#slider2").ownSliders({
-		arrowRightImageURL : "https://cpng.pikpng.com/pngl/s/288-2883770_right-arrow-comments-slider-arrow-icon-png-transparent.png",
-	});
-	
-	console.log(sliderObjList);
-	
-	//const slider1 = makeSlider("slider1", {});
-	
-	//const slider2 = makeSlider("slider2", {});
-	
-	//console.log(slider1);
-	//console.log(slider2);
-	
-});
