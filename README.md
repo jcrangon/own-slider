@@ -1,8 +1,8 @@
 # own-slider
- - Slider is fully responsive and will automatically reduce the number of shown slide to accomodate the screen width.
- - Arrow can be hidden. They can be created from an alpha-numeric character or from an image url.
+ - Slider is fully responsive and will automatically reduce the number of shown slides to accomodate for screen width.
+ - Arrows can be hidden. They can be created from an alpha-numeric character or from an image url.
  
- -customizing th slider:
+ -customizing the slider:
  $(document).ready(function(){
 	
 	$("#slider1").ownSliders({
